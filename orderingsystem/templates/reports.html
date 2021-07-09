@@ -1,0 +1,211 @@
+
+{% include "navbar.html" %}
+{% load static %}
+
+{% block content%}
+<!DOCTYPE html>
+
+  
+
+            <br>
+  <h3 class="w3-wide w3-center" style="margin-right: -400px;">Sales Reports</h3> 
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px; margin-left: 30px; ">
+
+
+  <div class="w3-row-padding">
+  
+
+    <div class="w3-third" >
+    
+      <div class="w3-lightblue w3-text-black w3-card-4">
+       
+        <div class="w3-container">
+          <h4 > <center> Search for order History</center></h4>
+          <form action="report" method="POST">
+            {% csrf_token %}
+          
+           <br>
+           
+             
+                <div class=" w3-text-white">
+  
+                  <input class="custom-select" type="text" id="search"  name="search" placeholder="Username" style="width:180px;border: none"><br><br>
+                  <input class="custom-select" type="date"  class="datepicker" name="q1" style="width:180px;border: none"> 
+              <input class="custom-select" type="date"  class="datepicker" name="q2" style="width:180px;border: none"><br><br>
+               <input  type="checkbox"  name="1"  value="1"> <font color="black"> CSV</font><br>
+        
+             
+              <button class="btn btn-info btn-md" style="width:80px;border: none;background-color: teal;" type="submit">Search</button>
+              </div>
+          </form>  <hr>
+          <form action="reports" method="POST" id = "form1" onsubmit = "return sub()">
+   			 {% csrf_token %}
+        
+         	 <p>Search By Colour</p>
+         
+           
+              <div class=" w3-text-white">
+
+                  
+            <select class="custom-select" name="search" id="search" style="width:80px; border: none">
+             
+              <option value="Red">Red</option>
+              <option value="Grey">Grey</option>
+              <option value="Pink">Pink</option>
+              <option value="Yellow">Yellow</option>
+              <option value="Blue">Blue</option>
+              <option value="Green">Green</option>
+            </select><br><br>
+            <input class="custom-select" type="date"  class="datepicker" name="q1" style="width:180px;border: none"> 
+          <td><input class="custom-select" type="date"  class="datepicker" name="q2" style="width:180px;border: none"><br><br>
+            <input  type="checkbox"  name="1"  value="1"><font color="black"> CSV</font><br>
+        
+            <button class="btn btn-info btn-md" style="width:80px;border: none;background-color: teal;" type="submit">Search</button>
+            
+          	</div>
+          
+        </form>
+       
+    
+
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+    
+
+      {% if searchdata %} 
+   
+      
+        <table class="table" >
+          <thead class="table-dark">
+            <tr>
+              
+        
+            
+              <th scope="col">Username</th>
+              <th scope="col">Colour - Size</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Location</th>
+              <th scope="col">Ordered Date</th>
+              <th scope="col">Delivered Date</th>
+       
+            </tr>
+          </thead>
+         
+
+          <tbody>
+  
+         
+         
+
+            {% for search in searchdata %}
+            <tr>
+          
+            
+      
+           {% if search.delivered  == "Delivered" %}
+       
+            <tr>
+            
+            
+            
+              <td><a href="/order/fulldetails/{{ search.id }}">{{ search.username }}</a> </td>
+              
+              <td> {{ search.colour }} - {{ search.size }}</td>
+              <td> {{ search.quantity }}</td>
+              <td> {{ search.Total }}</td>
+              
+              <td>  {{ search.location }}</td>
+              <td>  {{ search.ordered_date }}</td>
+              <td>  {{ search.delivered_date }}</td>
+        
+             
+          
+             
+                  {% endif %}
+            </tr>
+        
+            {% endfor %}
+          
+       
+            
+          </tbody>
+        
+          {{searchdata1.username}}
+          <tbody>
+            {% for search in searchdata1 %}
+            <tr>
+          
+           
+            
+      
+           {% if search.delivered  == "Delivered" %}
+            <tr>
+            
+             
+              
+              <td> <a href="/order/fulldetails/{{ search.id }}"></a> {{ search.username }}</td>
+              <td> {{ search.size }}</td>
+              <td> {{ search.quantity }}</td>
+              <td> {{ search.Total }}</td>
+              
+              <td>  {{ search.location }}</td>
+              <td>  {{ search.ordered_date }}</td>
+              <td>  {{ search.delivered_date }}</td>
+       
+              
+             
+                  {% endif %}
+            </tr>
+        
+            {% endfor %}
+        
+            
+           <h3 class="btn btn-info btn-md"class="btn btn-info btn-md" style="background-color: teal;margin-right: 10px;">Total Orders:  {{ countrecord }}</h3>
+            
+           <h3 class="btn btn-info btn-md" style="background-color: teal;" > Total Sales:Rs. {{ sum }}</h3>  <br>
+          
+      {% else %} 
+            <br><br><br><br>
+          
+  
+            <h3 class="w3-wide w3-center">Results will be displayed Here</h3> <br>
+      {% endif %}    
+            
+      {% for message in messages %}
+                         
+      <center>                        
+      <div class="alert alert-success" role="alert">
+        <h6>{{message}}</h6>  
+      </div>
+      {% endfor %}
+      </center>
+
+          </tbody>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+ 
+
+
+</body>
+</html>
+
+ {% endblock %}   

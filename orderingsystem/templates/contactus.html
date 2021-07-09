@@ -1,0 +1,47 @@
+{% include "navbar.html" %}
+{% load static %}
+
+    
+<title>Gomadevi Sweater Uudhyog</title>
+
+
+
+  <!-- The Contact Section -->
+  <div class="w3-container w3-content w3-padding-64" style="max-width:750px" id="contact">
+    <h2 class="w3-wide w3-center" sstyle="margin-top: -15px;">CONTACT US</h2><br><br><br>
+
+    <div class="w3-row w3-padding-32">
+      <div class="w3-col m6 w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker" style="width:30px"></i>Manmaiju Tarakeswor<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: <br>
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: gomadevisweaters@gmail.com<br>
+        <br>
+      
+      </div>
+      <div class="w3-col m6">
+        <form action="contactus" method="post">
+          {% csrf_token %}
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Name" required name="name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Phone" required name="phone">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="Message" required name="message">
+          <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+<!-- End Page Content -->
+</div>
+
+<!-- Image of location/map -->
+<img src="{% static 'image/map.png' %}" class="w3-image w3-greyscale-min" style="width:95%;margin-left: 40;margin-right: 20;">
+
+<!-- Footer -->
+<hr>
+{% include "footer.html" %}

@@ -1,0 +1,76 @@
+{% include "navbar.html" %}
+
+{% for message in messages %}
+                         
+<center>                        
+<div class="alert alert-success" role="alert">
+  <h5>{{message}}</h5>  
+  </div>
+{% endfor %}
+</center>  
+
+
+
+ <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+            
+  <h3 class="w3-wide w3-center" style="margin-top: -15px;">Order History</h3>
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+   
+  
+       
+        
+        <th scope="col">Size</th>
+        <th scope="col">Colour</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Ordered Date</th>
+        <th scope="col">Delivery Date</th>
+     
+        <th scope="col">Payment</th>
+
+     
+     
+      </tr>
+    </thead>
+   
+    
+       
+    <tbody>
+      {% for order in orders %}
+     
+     
+ 
+      {% if order.delivered  == "Delivered" %}
+      {% if user.username == order.username %}
+
+      
+
+
+   
+   
+      <td> <a href="/order/fulldetails/{{ order.id }}">  {{ order.size }} </a></td>
+      <td>  {{ order.colour }}</td>
+      <td>  {{ order.quantity }}</td>
+      <td>  {{ order.Total }}</td>
+    
+      <td>  {{ order.ordered_date }}</td>
+      <td>  {{ order.delivered_date }}</td>
+ 
+      
+      <td> <button class="btn btn-info btn-md" style="width:120px;background-color: teal;">Full Payment</a></button></td>
+     
+       
+      {% endif %}
+      {% endif %}
+    </tr>
+    {% endfor %}
+    <h3 class="btn btn-info btn-md" style="background-color: teal;">Total Orders:  {{ count}}</h3> &nbsp;
+    <h3 class="btn btn-info btn-md" style="background-color: teal;">Total Purchase: Rs. {{ sum }}</h3>  <br>
+    </tbody>
+  </table>
+
+
+</div>

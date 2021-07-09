@@ -1,0 +1,102 @@
+{% include "navbar.html" %}
+
+    
+<title>Gomadevi Sweater Uudhyog</title>
+{% for message in messages %}
+<center>                        
+  <div class="alert alert-danger" role="alert">
+    <h5>{{message}}</h5>  
+    </div>
+  {% endfor %}
+</center>  
+
+<style>
+  a:hover{
+    color: purple;
+  }
+</style>
+
+  
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px;margin-top: -15px;" id="contact">
+            
+      <h3 class="w3-wide w3-center">Completed Orders</h3> <br>
+     
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+      
+      
+        
+            <th scope="col">Username</th>
+            <th scope="col">Colours - Sizes</th>
+            <th scope="col">Total Price</th>
+          
+       
+            <th scope="col">Ordered Date</th>
+            <th scope="col">Delivered Date</th>
+      
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+       
+        <!-- userdata search beginning -->
+        <form action="completedorder" method="POST">
+          {% csrf_token %}
+           <input class="btn btn-light" style="width:180px;" type="text" placeholder="Username Or invoice" name="search" id="search">  
+            <button class="btn btn-info btn-md" style="width:80px;background-color: teal;" type="submit">Search</button>
+            </div><br><br>
+        </form>
+        <!-- userdata search end -->
+
+        <tbody>
+          {% for order in orders %}
+          <tr>
+         
+            {% if order.delivered  == "Delivered" %}
+            
+           
+           
+            <td> <a href="/order/fulldetails/{{ order.id }}"> {{ order.username }}</a></td>
+            <td> {{ order.colour }} - {{ order.size}}</td>
+            <td> {{ order.Total}}</td>
+      
+            <td>  {{ order.ordered_date }}</td>
+            <td>  {{ order.delivered_date }}</td>
+       
+           
+            <td> <button class="btn btn-info btn-md" type="submit" style="width:80px; background-color: #BD1E51;"> <a href="/order/deletecompleted/{{ order.id }}">Delete</a></button></td>
+                {% endif %}
+              
+               
+          </tr>
+          {% endfor %}
+ 
+        </tbody>
+      
+        <!-- searchfor user -->
+        {% for order in searchdata %}
+        <tr>
+        
+          {% if order.delivered  == "Delivered" %}
+          <td scope="row"> {{ order.id }}</a></td>
+         
+          <td> <a href="/order/fulldetails/{{ order.id }}">{{ order.username }}</a></td>
+          <td> {{ order.colour }} /{{ order.size}}</td>
+           
+          <td> {{ order.Total}}</td>
+    
+          <td>  {{ order.ordered_date }}</td>
+          <td>  {{ order.delivered_date }}</td>
+       
+          {% endif %}
+          <td> <button type="submit" class="btn btn-info btn-md" style="width:100px; background-color: #BD1E51;"> <a href="/order/deletecompleted/{{ order.id }}">Delete</a></button></td>
+             
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+
+      </table>
+ 
+    
+    </div>

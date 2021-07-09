@@ -1,0 +1,484 @@
+{% load static %}
+{% include "navbar.html" %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+{% for message in messages %}
+                         
+<center>                        
+<div class="alert alert-success" role="alert">
+  <h5>{{message}}</h5>  
+  </div>
+{% endfor %}
+</center>  
+
+
+<script>
+      function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+
+</script>
+<style>
+  .flip-box {
+  background-color: transparent;
+  width: 305px;
+  height: 350px;
+  display: inline-block;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 110%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+ 
+
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility:visible; /* Safari */
+  backface-visibility:hidden ;
+  
+}
+
+/* Style the front side */
+.flip-box-front {
+  background-color: whitesmoke;
+  color: black;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: lightblue;
+  color: white;
+  transform: rotateY(180deg);
+  height: 200px;
+  background: -webkit-linear-gradient(right,rgb(245, 180, 205),rgb(192, 204, 236));
+}
+#slider {
+	overflow:hidden;
+  height: 85vh;
+  margin-bottom: 10;
+  margin-top: 10;
+  margin-left: 7;
+  margin-right: 7;
+}
+#slider figure {
+	position:relative;
+
+  width: 500%;
+	margin: 0;
+	left: 0;
+	animation:20s slider infinite;
+}
+#slider figure img {
+		
+
+  width: 20%;
+	float: left;
+  object-fit:fill;
+  
+}
+
+@keyframes slider {
+	0% {
+		left: 0;
+	}
+	20% {
+		left: 0;
+	}
+	25% {
+		left: -100%;
+	}
+	45% {
+		left: -100%;
+	}
+	50% {
+		left: -200%;
+	}
+	70% {
+		left: -200%;
+	}
+	75% {
+		left: -300%;
+	}
+	95% {
+		left: -300%;
+	}
+	100% {
+		left: -400%;
+	}
+}
+
+</style>
+
+ 
+   
+  
+
+
+<title>Gomadevi Sweater Uudhyog</title>
+
+
+<div id="slider">
+  <figure>
+            <img src="{% static 'image/IMG_20210417_163443.jpg' %}">
+            <img src="{% static 'image/IMG_20210417_163502.jpg' %}"> 
+     
+           
+           
+           <img src="{% static 'image/IMG_20210417_163443.jpg' %}">
+          
+            <img src="{% static 'image/IMG_20210417_163443.jpg' %}"> 
+              <img src="{% static 'image/IMG_20210417_163502.jpg' %}"> 
+  </figure>
+</div> 
+
+
+  
+
+ 
+ <div class="w3-Teal" id="tour">
+  <div class="w3-container w3-content w3-padding-64" >
+    <h2 class="w3-wide w3-center">Available Sweaters</h2>
+    <p class="w3-opacity w3-center"><i>Remember to Order Sweaters !</i></p><br><br>
+
+    
+
+      
+    <nav class="navbar navbar-expand-lg navbar-black mdb-color lighten-34mt-60 mb-15">
+
+      <!-- Navbar brand -->
+      <h4 class="w3-wide">Colours:</h4>
+     
+      <select class="form-control" style="width:80px;" name="size" id="size">
+        
+        <option value="Red">Red</option>
+        <option value="Grey">Grey</option>
+        <option value="Pink">Pink</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Green">Green</option>
+        <option value="Blue">Blue</option>
+      </select>
+      
+      
+    </nav>
+    <br>
+
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <img src="{% static 'image/Mask Group.png' %}" style="margin-top: -25px;margin-right: -25px;" class="card-img-top" alt=" no img">
+          
+        </div>
+        <div class="flip-box-back"> <br>
+          <h5 style="color: black;"><b>Details:</b> </h5>
+          <h5 style="color: black;">Colour: Red</h5>
+             
+          <h5 style="color: black;">Price: Rs. 1000</h5>
+          <center><button class="btn btn-primary" style="width:102px;" type="submit">
+            {% if user.is_authenticated %}
+            <a href="/order">
+              
+            {% else %}
+            <a href="/account/login">
+              {% endif %}
+               Order Now  </a></button></center>
+               <br><br> <br><br>
+               <i>Size available for all colours !</i><br><br>
+        </div>
+      </div>
+    </div>
+   
+    &nbsp;
+   
+
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <img src="{% static 'image/IMG_20210419_120803-removebg.png' %}" style="margin-top: -55px; margin-right: -10px;"   class="card-img-top" alt=" no img">
+          
+        </div>
+        <div class="flip-box-back"> <br>
+          <h5 style="color: black;"><b>Details:</b> </h5>
+          <h5 style="color: black;">Colour: Grey</h5>
+             
+          <h5 style="color: black;">Price: Rs. 1000</h5>
+          <center><button class="btn btn-primary" style="width:102px;" type="submit">
+            {% if user.is_authenticated %}
+            <a href="/order">
+              
+            {% else %}
+            <a href="/account/login">
+              {% endif %}
+               Order Now  </a></button></center>
+               <br><br> <br><br>
+               <i>Size available for all colours !</i><br><br>
+        </div>
+      </div>
+    </div>
+    &nbsp;
+   
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <img src="{% static 'image/Untitled.png' %}" class="card-img-top" alt=" no img">
+          
+        </div>
+        <div class="flip-box-back"> <br>
+          <h5 style="color: black;"><b>Details:</b> </h5>
+          <h5 style="color: black;">Colour: Yellow</h5>
+             
+          <h5 style="color: black;">Price: Rs. 1000</h5>
+          <center><button class="btn btn-primary" style="width:102px;" type="submit">
+            {% if user.is_authenticated %}
+            <a href="/order">
+              
+            {% else %}
+            <a href="/account/login">
+              {% endif %}
+               Order Now  </a></button></center>
+               <br><br> <br><br>
+               <i>Size available for all colours !</i><br><br>
+        </div>
+      </div>
+    </div>
+    
+<br><br><br><br><br>
+   
+
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <img src="{% static 'image/login.png' %}" style="margin-top: -55px; margin-right: -25px;"   class="card-img-top" alt=" no img">
+          
+        </div>
+        <div class="flip-box-back"><br>
+          <h5 style="color: black;"><b>Details:</b> </h5>
+          <h5 style="color: black;">Colour: Pink</h5>
+             
+          <h5 style="color: black;">Price: Rs. 1000</h5>
+          <center><button class="btn btn-primary" style="width:102px;" type="submit">
+            {% if user.is_authenticated %}
+            <a href="/order">
+              
+            {% else %}
+            <a href="/account/login">
+              {% endif %}
+               Order Now  </a></button></center>
+               <br><br> <br><br>
+               <i>Size available for all colours !</i><br><br>
+        </div>
+      </div>
+    </div> 
+    &nbsp;
+   
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <img src="{% static 'image/green.png' %}" style="margin-top: -55px; margin-right: -25px;"   class="card-img-top" alt=" no img">
+          
+        </div>
+        <div class="flip-box-back"><br>
+          <h5 style="color: black;"><b>Details:</b> </h5>
+          <h5 style="color: black;">Colour: Green</h5>
+             
+          <h5 style="color: black;">Price: Rs. 1000</h5>
+          <center><button class="btn btn-primary" style="width:102px;" type="submit">
+            {% if user.is_authenticated %}
+            <a href="/order">
+              
+            {% else %}
+            <a href="/account/login">
+              {% endif %}
+               Order Now  </a></button></center>
+               <br><br> <br><br>
+               <i>Size available for all colours !</i><br><br>
+        </div>
+      </div>
+    </div> 
+    &nbsp;
+   
+    <div class="flip-box">
+      <div class="flip-box-inner">
+        <div class="flip-box-front">
+          <img src="{% static 'image/blue.png' %}" style="margin-top: -55px; margin-right: -25px;"   class="card-img-top" alt=" no img">
+          
+        </div>
+        <div class="flip-box-back"><br>
+          <h5 style="color: black;"><b>Details:</b> </h5>
+          <h5 style="color: black;">Colour: Blue</h5>
+             
+          <h5 style="color: black;">Price: Rs. 1000</h5>
+          <center><button class="btn btn-primary" style="width:102px;" type="submit">
+            {% if user.is_authenticated %}
+            <a href="/order">
+              
+            {% else %}
+            <a href="/account/login">
+              {% endif %}
+               Order Now  </a></button></center>
+               <br><br> <br><br>
+               <i>Size available for all colours !</i><br><br>
+        </div>
+      </div>
+    </div> 
+    <br><br><br><br> <br><br>
+    <center><button class="btn btn-primary" style="width:102px;margin-left: 0px;" type="submit">
+      {% if user.is_authenticated %}
+      <a href="/order">
+        
+      {% else %}
+      <a href="/account/login">
+        {% endif %}
+         Order Now  </a></button></center>
+
+         <br><br><br><br> 
+      <nav class="navbar navbar-expand-lg navbar-black mdb-color lighten-34mt-60 mb-15">
+
+        <h4 class="w3-wide">Available Sizes:</h4>
+       
+        <select class="form-control" style="width:104px;" name="size" id="size"> 
+          
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
+
+      </nav>
+   <br> 
+   &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;    &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+    
+      <div class="flip-box">
+        <div class="flip-box-inner">
+          <div class="flip-box-front">
+            <img src="{% static 'image/Mask Group.png' %}" class="card-img-top" alt=" no img" style="margin-top: -35px; margin-right: -20px;" >
+            
+          </div>
+          <div class="flip-box-back"> <br>
+            <h5 style="color: black;"><b>Details:</b> </h5>
+            <h5 style="color: black;">Size: Medium</h5>
+               
+            <h5 style="color: black;">Price: Rs. 1000</h5>
+            <center><button class="btn btn-primary" style="width:102px;" type="submit">
+              {% if user.is_authenticated %}
+              <a href="/order">
+                
+              {% else %}
+              <a href="/account/login">
+                {% endif %}
+                 Order Now  </a></button></center> <br><br> <br><br>
+                <i>All colours available !</i><br><br>
+          </div>
+        </div>
+      </div>
+     
+      &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;
+      <div class="flip-box">
+        <div class="flip-box-inner">
+          <div class="flip-box-front">
+            <img src="{% static 'image/IMG_20210419_120803-removebg.png' %}" style="margin-top: -60px;" class="card-img-top" alt=" no img">
+            
+          </div>
+          <div class="flip-box-back"> <br>
+            <h5 style="color: black;"><b>Details:</b> </h5>
+            <h5 style="color: black;">Size: Large</h5>
+               
+            <h5 style="color: black;">Price: Rs. 1000</h5>
+            <center><button class="btn btn-primary" style="width:102px;" type="submit">
+              {% if user.is_authenticated %}
+              <a href="/order">
+                
+              {% else %}
+              <a href="/account/login">
+                {% endif %}
+                 Order Now  </a></button></center>
+                 <br><br> <br><br>
+                 <i>All colours available !</i><br><br>
+          </div>
+        </div>
+      </div>
+     
+<br><br><br><br>
+      <center><button class="btn btn-primary" style="width:102px;margin-left: 0px;" type="submit">
+        {% if user.is_authenticated %}
+        <a href="/order">
+          
+        {% else %}
+        <a href="/account/login">
+          {% endif %}
+           Order Now  </a></button></center>
+ 
+           <br><br><br><br> 
+  
+  
+      </div>
+
+    </div>
+  </div>
+
+
+
+<!-- The Contact Section -->
+<div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+  <h2 class="w3-wide w3-center">Join us</h2> 
+  <h2 class="w3-wide w3-center">Fill form to Book for training</h2> 
+  
+  <div class="w3-row w3-padding-32">  <br><br>
+    <div class="w3-col m6 w3-large w3-margin-bottom">
+      <img src="{% static 'image/Mask Group.png' %}"  style="margin-left: 30px; margin-top: -40;" >
+    </div>
+    <div class="w3-col m6"> <br><br><br>
+      <form action="/" method="POST">
+        {% csrf_token %}
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="form-control" type="text" placeholder="Name   *" name="name" required><br>
+          </div>
+          <div class="w3-half">
+            <input class="form-control" type="email" placeholder="Email     " name="email"><br>
+          </div>
+        </div>
+        <input class="form-control" type="text" placeholder="Contact Number  *" name="contact" required><br>
+        <input class="form-control" type="text" placeholder="Location    *" name="location" required><br>
+        
+       
+        <div class="w3-col m6 w3-large w3-margin-bottom">
+           * Required
+        </div>
+        <input type="submit"  class="btn btn-primary" style="background-color: teal; width:100px;">
+        
+        
+      </form>
+   
+    </div>
+  </div>
+  <hr>
+  <center><button   onclick="topFunction()" title="Go to top"  class="btn btn-secondary" style="width:100px; margin-top: -200px;">Go to Top</button></center>
+</div>
+
+  
+ 
+
+      
+
+
+{% endblock %}
+
+{% include "footer.html" %}

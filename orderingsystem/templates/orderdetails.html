@@ -1,0 +1,84 @@
+
+
+{% include "navbar.html" %}
+<center>
+  {% for message in messages %}
+                         
+                            
+  <div class="alert alert-danger" role="alert">
+    <h5>{{message}}</h5>  
+  </div>
+  {% endfor %}
+</center>
+
+<title>Gomadevi Sweater Uudhyog</title> 
+
+
+
+
+
+<div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        
+  <h3 class="w3-wide w3-center" style="margin-top: -15px;">Order Details</h3>
+ 
+
+    
+<table class="table">
+ <thead class="table-dark">
+   <tr>
+ 
+
+     <th scope="col">username</th>
+     <th scope="col">Colours - Size</th>
+     <th scope="col">Phone</th>
+   
+     <th scope="col">Location</th>
+     <th scope="col">Ordered Date</th>
+     <th scope="col">Delivery Date</th>
+     <th scope="col">Advance Payment</th>
+     <th scope="col">Actions</th>
+
+
+    
+   </tr>
+ </thead>
+
+
+ <tbody>
+   {% for order in orders %}
+   <tr>
+    
+     
+      
+
+     {% if order.delivered  == "NotDelivered" %}
+  
+     
+
+     <td> <a href="/order/fulldetails/{{ order.id }}"> {{ order.username }}</a></td>
+     <td> {{ order.colour }}-{{ order.size}}</td>
+    
+     <td>  {{ order.phone }}</td>
+ 
+     <td>  {{ order.location }}</td>
+     <td>  {{ order.ordered_date }}</td>
+     <td>  {{ order.delivered_date }}</td>
+     <td>  {{ order.verified }}</td>
+  
+     
+     <td> <button class="btn btn-info btn-md" style="width:80px;background-color: teal;"><a href="/order/orderdetails/{{ order.id }}">Update</a></button>
+     <button class="btn btn-info btn-md" style="width:80px;background-color: #BD1E51;"><a href="/order/delete/{{ order.id }}">Delete</a></button></td>
+ 
+
+    {% endif %}
+   </tr>
+
+   {% endfor %}
+ <h3 class="btn btn-info btn-md" style="background-color: teal;">Total Orders:  {{ count }}</h3>  <br>
+
+ </tbody>
+</table>
+
+
+  
+</div>

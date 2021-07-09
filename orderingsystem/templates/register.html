@@ -1,0 +1,107 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"><link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+
+<style>
+    body {
+ 
+    margin: 0;
+  padding: 0;
+  
+  height: 100vh;
+   background: teal;
+  margin-left: -50;
+  }
+  #login .container #login-row #login-column #login-box {
+    width: 650;
+    margin-top: 30px;
+    max-width: 800px;
+    height: 800px;
+    background-image: url("{% static 'image/Untitled.png' %}");
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    border-bottom-right-radius: 20px;
+    background-position: left center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 340px;
+ 
+
+
+    border: 2px solid black;
+    background-color: ghostwhite;
+  }
+  #login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+    margin-left: 310;
+  }
+  #login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+  }
+</style><title>| Gomadevi Sweater Uudhyog |</title>
+<body>
+  <div id="login">
+    
+      <div class="container">
+          <div id="login-row" class="row justify-content-center align-items-center">
+              <div id="login-column" class="col-md-6">
+                  <div id="login-box" class="col-md-12">
+                      
+                      <form id="login-form" class="form"  action="register" method="post">
+                          {% csrf_token %}
+                          <a href="/"><button aria-label='delete item' style="background-color: teal" class="btn btn-info btn-md" type='button'>X</button></a>
+                          <h3 class="text-center text-info">Sign Up</h3>
+                          {% for message in messages %}
+                         
+                            
+                                <div class="alert alert-danger" role="alert">
+                                    {{message}}
+                                  </div>
+                                {% endfor %}
+                             
+                         
+                         
+                          <div class="form-group">
+                            <label for="username" class="text-info"> Username:</label><br>
+                            <input type="username" name="username" id="username" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="email" class="text-info">Email:</label><br>
+                          <input type="email" name="email" id="email" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="username" class="text-info">Phone:</label><br>
+                        <input type="text" name="first_name" id="first_name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="username" class="text-info">Address:</label><br>
+                      <input type="text" name="last_name" id="last_name" class="form-control" required>
+                  </div>
+                      <div class="form-group">
+                        <label for="password1" class="text-info">Password:</label><br>
+                        <input type="password" name="password1" id="password1" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="password2" class="text-info">Confirm Password:</label><br>
+                      <input type="password" name="password2" id="password2" class="form-control" required>
+                  </div>
+                          <div class="form-group">
+                              <label for="remember-me" class="text-info"><span>Create Account</span></label><br>
+                              <input type="submit" style="background-color:teal" name="submit" class="btn btn-info btn-md" value="Register">
+                          </div>
+                          <div id="register-link" class="text-right">
+                           <br><br><br><center> Already Have one ?  <a href="login" class="text-info">Login</a></center>
+                          </div>
+                          <hr>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+
+{% endblock %}
+
+

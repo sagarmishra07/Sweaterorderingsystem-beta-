@@ -1,0 +1,100 @@
+{% load static %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3schools.css' %}">
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+<link rel="stylesheet" href="{% static 'css/animatedtitle.css' %}">
+
+
+
+<link rel="stylesheet" href="{% static 'js/ontop.js' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+  
+body {font-family: "Lato", sans-serif;
+background: -webkit-linear-gradient(right,rgb(176, 184, 228),rgb(241, 187, 218)); 
+
+  
+}
+
+a:hover{
+  text-decoration: none;
+  color:whitesmoke;
+
+}
+
+
+</style>
+<font color="whitesmoke" face="Lato", >
+<title>| Gomadevi Sweater Uudhyog |</title>
+<body>
+
+  <nav style="background-color:#0C090A; height: 25px;text-align:center;border-top-left-radius: 20px;border-top-right-radius: 20px;">
+
+   
+    <font size="3px";face="lato"> <i><a style="opacity: 0.6;">  <span id="date"></span> </a></i> </font> &nbsp; &nbsp; &nbsp;
+    <font size="3px";face="lato"> <i><a style="opacity: 0.6;">   <span id="datetime"></span> </a></i></font>
+   
+    
+    <script>
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+  
+    document.getElementById("date").innerHTML =dt.toDateString();
+    </script>
+  
+  </nav>
+
+    
+
+  <nav class="navbar navbar-primary" style="background-color:teal;font-size: 18px;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;">
+    <img src="{% static 'image/logo.png' %}"  height="70" width="140" style="margin-left: 70px;">
+    
+    {% if user.is_authenticated and user.is_superuser == False %}
+    <a href="/order" class="w3-ar-item w3-button w3-padding-large w3-hide-small">Order</a>
+    <a href="/order/cart" class="w3-ar-item w3-button w3-padding-large w3-hide-small">Pending Orders</a>
+    <a href="/order/userorders" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Order History</a>
+
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small"><i class="fa fa-user" aria-hidden="true"> Hello, {{user.username}}</i></a>
+      <a href="/account/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Logout</a>
+        <a href=""></a> 
+     
+      
+    
+      {% elif user.is_superuser == True %}
+      
+      <a href="/order/orderdetails" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Order Details</a>
+     
+      <a href="/order/completedorder" class="w3-bar-item w3-button w3-padding-large w3-hide-small" >Completed Orders</a>
+      <a href="/order/reports" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Reports </a>
+      <a href="/order/generateinvoice" class="w3-bar-item w3-button w3-padding-large w3-hide-small"> Invoice </a>
+      <a href="/feedback" class="w3-bar-item w3-button w3-padding-large w3-hide-small" >Feedback</a>
+
+     
+      <a href="/account/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Logout</a>
+      <a href=""></a> 
+   
+    
+    {% else %}
+   
+    
+      <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hide-small"><i class="fa fa-home"></i> Home</i></a>
+      <a href="/contactus" class="w3-bar-item w3-button w3-padding-large w3-hide-small"><i class="fa fa-envelope"></i> Contact us</a>
+      <a href="/account/login" class="w3-bar-item w3-button w3-padding-large "><i class="fa fa-fw fa-user"></i>Login</i></a>
+      <a href="/account/register" class="w3-bar-item w3-button w3-padding-large w3-hide-small"><i class="fa fa-fw fa-user"></i>Register</a>
+      <a href=""></a> 
+    {% endif %}
+  
+  </nav>
+
+
+
+
+ 
+   
+  
+</body>
+</font>

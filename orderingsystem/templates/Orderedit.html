@@ -1,0 +1,110 @@
+{% include "navbar.html" %}
+{% load static %}
+      
+<title>Gomadevi Sweater Uudhyog</title> 
+
+
+
+
+<div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+ 
+  <h2 class="w3-wide w3-center" style="margin-top: -15px;">Update Order Details</h2>
+ 
+  <div class="w3-row w3-padding-32">
+    <div class="w3-col m6 w3-large w3-margin-bottom">
+      <br>
+      {% if orders.colour == "Red" %}
+      <img src="{% static 'image/Mask Group.png' %}"><br>
+      {% elif orders.colour == "Grey" %}
+      <img src="{% static 'image/IMG_20210419_120803-removebg.png' %}" style="height: 600px; margin-top: -100px; margin-left: 20px;transform:rotate(358deg);"><br>
+      {% elif orders.colour == "Pink" %}
+      <img src="{% static 'image/login.png' %}" style="height: 500px;margin-top:-50px;margin-left: 70px;"><br>
+       {% elif orders.colour == "Yellow" %}
+      <img src="{% static 'image/Untitled.png' %}"style="margin-top:10px"><br>
+      {% elif orders.colour == "Blue" %}
+      <img src="{% static 'image/blue.png' %}" style="margin-top:-85px;margin-left: 50px;"><br>
+      {% elif orders.colour == "Green" %}
+      <img src="{% static 'image/green.png' %}" style="margin-top:-85px;margin-left: 50px;"><br>
+      {% endif %}
+      
+    </div>
+    <div class="w3-col m6">
+      <form action="/order/update/{{ orders.id }}" method="POST">
+        <input type="hidden" name="id" id="id" value="{{ orders.id }}" >
+      {% csrf_token %}
+      <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+         
+    
+        <div class="w3-half">Username
+            <input class="w3-input w3-border" type="text" name="username" value="{{ orders.username}}" readonly><br>
+        </div>
+      
+ 
+      
+           
+         <div class="w3-half">Size
+          <input class="w3-input w3-border" type="text" name="size" value="{{ orders.size }}" readonly><br>
+           </div>
+               
+         <div class="w3-half">Colour
+          <input class="w3-input w3-border" type="text" name="colour" value="{{ orders.colour }}" readonly><br>
+           </div>
+           <div class="w3-half">
+               
+            Quantity<input class="w3-input w3-border" type="text" name="quantity" value="{{ orders.quantity }}" readonly><br>
+             </div>
+             <div class="w3-half">
+               
+              Total<input class="w3-input w3-border" type="text" name="Total" value="{{ orders.Total }}" readonly><br>
+            
+               </div>
+           
+            <div class="w3-half">Phone Number
+              <input class="w3-input w3-border" type="number" name="phone" value="{{ orders.phone }}" readonly><br>
+               </div>
+        
+               <div class="w3-half">Email
+                <input class="w3-input w3-border" type="email" name="email" value="{{ orders.email }}" readonly><br>
+                 </div>
+           
+                 <div class="w3-half">Location
+                  <input class="w3-input w3-border" type="text" name="location" value="{{ orders.location }}" readonly><br>
+                   </div>
+              
+                
+                 
+                    
+                   <div class="w3-half"> Delivery Date
+                    <input class="w3-input w3-border" type="date" name="delivered_date" value="{{ orders.delivered_date }}"  ><br>     
+                   </div>
+                
+       <br>
+                   <div class="w3-half"> Advance
+                    <select  class="w3-input w3-border" name="verified" value="{{ orders.verified }}" id="verified" >
+          
+                      <option value="Received"  >Advance Received</option>
+                     
+                      <option value="NotReceived" >Not Received</option>
+                      
+                    </select><br>
+                   </div>
+                   <div class="w3-half"> Orders
+                    <select  class="w3-input w3-border" name="delivered" value="{{ orders.delivered }}" id="delivered">
+                      <option value="Delivered">Delivered</option>
+                      <option value="NotDelivered" selected>Not Delivered</option>
+                      
+                    </select><br>
+                   </div>
+                 <div class="w3-col m6 w3-large w3-margin-bottom" style="margin-left: 20px;margin-top: -55px;">
+         * Required
+      </div> <br><br>
+      <center><input type="submit" class="btn btn-info btn-md" style="width:80px;border: none" value="Update"></center>
+      
+    </form>
+    
+      
+    </div>
+  </div>
+
+</div>
+

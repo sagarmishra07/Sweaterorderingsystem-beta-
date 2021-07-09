@@ -1,0 +1,131 @@
+  
+{% include "navbar.html" %}
+{% load static %}
+     
+
+
+   
+     
+     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+     
+     <style>
+     body {font-family: "Lato", sans-serif;
+     }
+     </style>
+     <title>Gomadevi Sweater Uudhyog</title>
+     <body>
+     <br>
+        <div class="container" >
+             <div class="row">
+                 <div class="col-12">
+                     <div class="card">
+                         <div class="card-body p-0" style="background-color:whitesmoke" >
+                             <div class="row p-5">
+                                 <div class="col-md-6" style="margin-left: 250px;">
+                                  <p><h3 class="w3-wide w3-center"><img src="{% static 'image/logo1.png' %}"  height="200" width="200"></h3>
+                                   <h6 style="font-size: 14;margin-top: -60px;" class="w3-wide w3-center">Manmaiju, Tarakeswor, Kathmandu</h6>
+                                   <h6 style="font-size: 14;margin-left: -270px;" class="w3-wide w3-center">Phone:</h6>
+                                 </div>
+         
+                             </div>
+         
+                             <hr class="my-5">
+         
+                             <div class="row pb-5 p-5">
+                                 <div class="col-md-6">
+                                      
+                                   
+                                     <p class="font-weight-bold mb-4"> <b><h4>Client Information</h4></b></p>
+                                
+                                     <p><b> Ordered by: </b>  {{ username }}</p>
+                                   
+                                    
+                                     <p> <b> Phone:</b>        {{ phone }} </p> 
+                                     <p><b> Email:</b> {{ email }}</p> 
+                                     <p class="mb-1"> <b>Location: </b> {{ location }}, Kathmandu</p>
+                                   
+                                 </div>
+         
+                                 
+                             </div>
+
+                            
+
+                             <div class="row p-5">
+                                 <div class="col-md-12">
+                                     <table class="table">
+                                         <thead>
+                                             <tr>
+                                                 <th class="border-0 text-uppercase small font-weight-bold">ID</th>
+                                                 <th class="border-0 text-uppercase small font-weight-bold">Ordered Date</th>
+                                                 <th class="border-0 text-uppercase small font-weight-bold">Size</th>
+                                                 <th class="border-0 text-uppercase small font-weight-bold">Colour</th>
+                                                 <th class="border-0 text-uppercase small font-weight-bold">Quantity</th>
+                                                 <th class="border-0 text-uppercase small font-weight-bold">Unit Cost</th>
+                                                 <th class="border-0 text-uppercase small font-weight-bold">Total</th>
+                                             </tr>
+                                         </thead>
+                                         
+                                         <tbody>
+                                                  
+     
+                                            {% for order in searchdata %}
+
+                                             <tr>
+                                                 <td> {{ order.id }}</td>
+                                                 
+                                                 <td> {{ order.ordered_date }}</td>
+                                                 <td> {{ order.size }}</td>
+                                                 <td> {{ order.colour }}</td>
+                                                 <td> {{ order.quantity }}</td>
+                                                 <td>Rs.1000 </td>
+                                                 <td>Rs. {{ order.Total }}</td>
+                                            {% endfor %}    
+                                             </tr>
+                                    
+                                                 
+                                                 
+                                             </tr>
+                                             <tr>
+                                                 <td> </td>
+                                                 <td></td>
+                                                 <td> </td>
+                                                 <td></td>
+                                                 <td></td>
+                                                 <td>Add: Delivery charge</td>
+                                                 <td>200</td>
+                                                 
+                                             </tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+         
+                             <div class="d-flex flex-row-reverse bg-dark text-white p-4">
+                               <div class="py-3 px-5 text-right">
+                                
+     
+                             </div>
+         
+                                 <div class="py-3 px-5 text-right">
+                                     <div class="mb-2">Amount</div>
+                                     <div class="h2 font-weight-light"> <td><button onclick="window.print();"target="_blank" style="cursor:pointer;">Rs.{{ totalamount }} </button></td></div>
+                                 </div>
+                                 
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             
+         
+         </div>
+         
+         
+       <br>
+    
+  
+ 
+
+
+   </tr>

@@ -1,0 +1,121 @@
+{% include "navbar.html" %}
+{% load static %}
+
+
+
+<link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+
+<style>
+body {font-family: "Lato", sans-serif;
+}
+</style>
+<title>Gomadevi Sweater Uudhyog</title>
+<body>
+<br>
+   <div class="container" >
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-0" style="background-color:whitesmoke" >
+                        <div class="row p-5">
+                            <div class="col-md-6">
+                             <p><h3 class="w3-wide w3-center"><img src="{% static 'image/logo1.png' %}"  height="200" width="200"></h3>
+                              <h6 style="font-size: 14;margin-top: -60px;" class="w3-wide w3-center">Manmaiju, Tarakeswor, Kathmandu</h6>
+                              <h6 style="font-size: 14;margin-left: -270px;" class="w3-wide w3-center">Phone:</h6>
+                            </div>
+    
+                            <div class="col-md-6 text-right">
+                                <p style="margin-right: 110px;" class="font-weight-bold mb-1">Invoice # {{ orders.id }}</p>
+                                <p class="text-muted">Ordered Date:  {{ orders.ordered_date }}</p>
+                                <p class="text-muted" style="margin-right: 5px">Delivered Date:  {{ orders.delivered_date }}</p>
+                                
+                            </div>
+                        </div>
+    
+                        <hr class="my-5">
+    
+                        <div class="row pb-5 p-5">
+                            <div class="col-md-6">
+                                <p class="font-weight-bold mb-4"><h4>Client Information</h4></p><br>
+                                <p class="mb-1"><b> Organization: </b>  {{ orders.Organization }}</p><br>
+                                <p class="mb-1"><b> Ordered by: </b>  {{ orders.username }}</p><br>
+                              
+                                <p class="mb-1"> <b>Location: </b> {{ orders.location }}, Kathmandu</p><br>
+                                <p> <b> Phone:</b>        {{ orders.phone }} </p>
+                                <p><b> Email:</b> {{ orders.email }}</p>
+                              
+                              
+                            </div>
+    
+                            
+                        </div>
+    
+                        <div class="row p-5">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-0 text-uppercase small font-weight-bold">ID</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Size</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Colour</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Quantity</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Unit Cost</th>
+                                            <th class="border-0 text-uppercase small font-weight-bold">Total</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <td> {{ orders.id }}</td>
+                                            <td> {{ orders.size }}</td>
+                                            <td> {{ orders.colour }}</td>
+                                            <td> {{ orders.quantity }}</td>
+                                            <td>Rs.1000  </td>
+                                            <td>Rs. {{ orders.Total }} <i>(Including tax)</i></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td> </td>
+                                            <td></td>
+                                            <td> </td>
+                                            <td></td>
+                                            <td>Less:  advance</td>
+                                            <td>Rs (1000)</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td> </td>
+                                            <td></td>
+                                            <td> </td>
+                                            <td></td>
+                                            <td>Add: Delivery charge</td>
+                                            <td>{{ delivery }}</td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+    
+                        <div class="d-flex flex-row-reverse bg-dark text-white p-4">
+                          <div class="py-3 px-5 text-right">
+                           
+
+                        </div>
+    
+                            <div class="py-3 px-5 text-right">
+                                <div class="mb-2">Amount</div>
+                                <div class="h2 font-weight-light"> <td><button onclick="window.print();"target="_blank" style="cursor:pointer;">Rs.{{ totalamount }} </button></td></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+    </div>
+    
+    
+  <br>

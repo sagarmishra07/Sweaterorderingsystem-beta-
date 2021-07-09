@@ -1,0 +1,52 @@
+{% include "navbar.html" %}
+{% load static %}
+
+{% for message in messages %}
+                         
+<center>                        
+<div class="alert alert-success" role="alert">
+  <h5>{{message}}</h5>  
+  </div>
+{% endfor %}
+</center>  
+
+    <br>
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px; margin-left: 600px; ">
+    
+    
+    <div class="w3-row-padding">
+    
+    
+      <div class="w3-third" >
+      
+        <div class="w3-lightblue w3-text-black w3-card-4">
+         
+          <div class="w3-container" style="height:300px;width:300px; margin-top:80px;">
+            <h4 > <center> Generate Invoice</center></h4>
+            <form action="generateinvoice" method="POST">
+              {% csrf_token %}
+            
+             <br>
+             
+               
+                  <div class=" w3-text-white">
+    
+                 <center> <input class="custom-select" type="text" id="search"  name="search" placeholder="Username" style="width:180px;border: none"></center>  <br><br>
+                  <center><input class="custom-select" type="date"  class="datepicker" name="q1" style="width:180px;border: none"></center>   <br><br>
+                
+              <center><button class="btn btn-info btn-md" style="width:80px;border: none;background-color: teal;" type="submit">Generate</button></center>  
+                </div>
+            </form> 
+    
+        <!-- End Right Column -->
+    </div>
+        
+    <!-- End Grid -->
+    </div>
+    
+    <!-- End Page Container -->
+    </div>
+    
+

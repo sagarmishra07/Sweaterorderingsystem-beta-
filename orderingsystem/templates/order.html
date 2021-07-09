@@ -1,0 +1,101 @@
+
+{% include "navbar.html" %}
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gomadevi Sweater Uudhyog</title>
+</head>
+
+<body>
+  {% for message in messages %}
+                         
+  <center>                        
+  <div class="alert alert-success" role="alert">
+    <h5>{{message}}</h5>  
+    </div>
+  {% endfor %}
+</center>  
+
+      <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        
+        
+        <div class="container">
+          <div class="row">
+             <div class="neons col-12">
+               <br> <h2 style="margin-top: -15px;"><center>Fill form to Order Sweaters</center>  </h2>
+             </div>
+          </div>
+      </div>
+        <div class="w3-row w3-padding-32">
+            <div class="w3-col m6 w3-large w3-margin-bottom">
+              <img src="{% static 'image/Untitled.png' %}" height="300px" width="250px" style="margin-left: 80px;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;border-top-left-radius: 20px;border-top-right-radius: 20px;">
+                
+              
+              </div>
+             
+          <div class="w3-col m6">
+            <form action="/order/" method="POST">
+              {% csrf_token %}
+             
+              <div class="w3-half">Colours
+                <select  class="form-control" name="colour" id="colour">
+               
+        <option value="Red">Red</option>
+        <option value="Grey">Grey</option>
+        <option value="Pink">Pink</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+                </select><br>
+              </div>
+                <div class="w3-half" >Size
+                
+                  <select class="form-control" name="size" id="size">
+                  
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                   
+                  </select><br>
+           
+                </div>
+              
+                 
+               
+                <div class="w3-half"> 
+                  <input class="form-control" type="number" placeholder="Quantity    * " name="quantity" required ><br>
+           
+                </div>
+                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                  
+                  <div class="w3-half"> Delivery Date
+                    <input class="custom-select" style="width:220px;" type="date" placeholder="Delivered Date    *" name="delivered_date" ><br>
+              </div>
+                  
+               
+               
+               
+            
+             
+                
+             <br><br>
+               <div class="w3-col m6 w3-large w3-margin-bottom" style="margin-left: -200px;"><br>
+                 * Required
+              </div>
+       
+   
+                   <br><br> <center><button class="btn btn-info btn-md" style="width:80px;margin-left: -300px;margin-top: 15px; background-color: teal;" type="submit"> Order</button></center>
+            </form>
+    
+          </div>
+        </div>
+        
+      </div>
+
+
+</body>
+</html>

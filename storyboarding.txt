@@ -1,0 +1,8 @@
+StoryBoarding
+
+Users browses the url of webpage and  view the available sweaters in the organization with their specification and prices.
+Then users place an order for sweaters by filling up the form and submit it by clicking submit button.Form includes fields like the
+organization name,sizes,colours,quantities,delivery date,email,phone etc.They can give feedback using contact us page.Then admin login 
+by using username and password and views order details,update details,delete details. Admin can view the history of the orders by searching 
+the name of ordering organization or shop.
+ 
