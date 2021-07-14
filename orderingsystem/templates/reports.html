@@ -149,10 +149,10 @@
               
                         data: {
                         
-                          labels: [{% for order in searchdata %} '{{order.ordered_date}}',{% endfor %}],
+                          labels: [{% for order in searchdata %}  {% if order.delivered  == "Delivered" %} '{{order.ordered_date}}',  {% endif %} {% endfor %}],
                     datasets: [{
                         label: 'Order Quantity',
-                        data: [{% for order in searchdata %} {{ order.quantity }}, {% endfor %}],
+                        data: [{% for order in searchdata %} {% if order.delivered  == "Delivered" %} {{ order.quantity }},{% endif %} {% endfor %}],
                         
                         backgroundColor: [
                             'rgba(255, 99, 132, 1)',
