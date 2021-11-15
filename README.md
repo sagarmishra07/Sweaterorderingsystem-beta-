@@ -3,6 +3,7 @@
 
 
 code to run:
-
-1) python install django
-2) pip install pillow
+1) cd orderingsystem
+2) python install django
+3) pip install pillow
+4) python maage.py runserver
